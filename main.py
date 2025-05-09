@@ -154,10 +154,10 @@ ips_commands = [
     "/ip firewall filter add chain=forward protocol=udp dst-port=123 src-address-list=!local action=drop comment=\"Block External NTP to LAN\"",
      
     # Limit all LAN-originated UDP abuse
-    "/ip firewall filter add chain=forward protocol=udp dst-port=53,123 connection-limit={udp_limit},32 action=drop comment=\"Limit any UDP flood\"",
+    f"/ip firewall filter add chain=forward protocol=udp dst-port=53,123 connection-limit={udp_limit},32 action=drop comment=\"Limit any UDP flood\"",
 
      # Limit all LAN-originated TCP SYN abuse
-    "/ip firewall filter add chain=forward protocol=tcp tcp-flags=syn connection-limit={tcp_limit},32 action=drop comment=\"Limit any TCP SYN flood\""
+    f"/ip firewall filter add chain=forward protocol=tcp tcp-flags=syn connection-limit={tcp_limit},32 action=drop comment=\"Limit any TCP SYN flood\""
 
     
 ]
